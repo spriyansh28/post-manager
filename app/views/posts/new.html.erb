@@ -1,6 +1,5 @@
-
 <h2></h2>
-<div class="card" style="width: 25rem;">
+<div class="card" style="width: 50rem;">
   <div class="card-body">
     <h5 class="card-title"> New Post </h5>
 
@@ -14,13 +13,8 @@
         <%= form.text_area :body, class: 'form-control' %>
       </div>
     
-      <div class="form-group">
-        <%= form.label :main_image %>
-        <%= form.text_area :main_image, class: 'form-control' %>
-      </div>
-    
       <ul>
-        <%= form.fields_for :Forwards do |forward_form| %>
+        <%= form.fields_for :forwards do |forward_form| %>
           <li>
             <%= forward_form.label :user_id, "Share with" %>
             <%= forward_form.number_field :user_id, class: 'form-control' %>

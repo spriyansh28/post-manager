@@ -1,25 +1,58 @@
-<p id="notice"><%= notice %></p>
 
-
+<html lang="en">
 <table>
   <thead>
-    <tr>
-      <th colspan="3"></th>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <th colspan="4"></th>
     </tr>
   </thead>
+  <h1>Posts</h1>
+
+<div class="container">
+  <header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-4 pt-1">
+        <a class="blog-header-logo text-dark" href="#">Title</a>
+      </div>
+      <div class="col-4 text-center">
+        <a class="blog-header-logo text-dark" href="#">Body</a>
+      </div>
+      <div class="col-4 d-flex justify-content-end align-items-center">
+        <a class="link-secondary" href="#" aria-label="Search">
+        <title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
 
   <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-      
-        <td><%= link_to 'Show', user %></td>
-
-      </tr>
-    <% end %>
+    <div class="user">
+        <% @user.posts.each do |p| %>
+            <div class="col-4 pt-1">
+            <a class="blog-header-logo text-dark" href="#">
+            <td><%= p.title %></td>                
+            </a>
+            </div>
+            <div class="col-4 text-center">
+            <a class="blog-header-logo text-dark" href="#">
+            <td><%= p.body %></td>
+            </a>
+            <td><%= link_to p.status, toggle_status_post_path(p)%></td>
+            <td><%= link_to 'Show', p %></td>
+            <td><%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin)%></td>
+          </tr>  
+        <% end %>     
   </tbody>
 </table>
+ 
 
 <br>
+</html>
 
-<%= link_to 'New User', new_user_path %>
+
+<%= link_to 'New Post', new_post_path if logged_in?(:site_admin) %>
+
+
+

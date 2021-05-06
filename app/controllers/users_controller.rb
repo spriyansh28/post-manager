@@ -3,8 +3,15 @@ class UsersController < ApplicationController
   access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
 
   # GET /users
-  def index
-    @users = User.all
+
+  def index    
+    if current_user
+     # @users = User.includes(:posts).all
+     @user = current_user
+
+    else
+      redirect_to new_user_session_path, notice: 'You are not logged in.'
+    end
   end
 
   # GET /users/1
@@ -23,6 +30,8 @@ class UsersController < ApplicationController
     def set_user
       @user = User.find(params[:id])
     end
+
+
 
     # Only allow a trusted parameter "white list" through.
     def user_params
