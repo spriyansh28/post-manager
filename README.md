@@ -1,24 +1,20 @@
-# README
+# Post Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a social media web app where people can share ###Posts and collaborate on writing ###Blogs
 
-Things you may want to cover:
+The app has the following functionalities:
 
-* Ruby version
+* User authentication
 
-* System dependencies
+* User authorization
 
-* Configuration
+* Relational Database
 
-* Database creation
+* Pick and Drop feature
 
-* Database initialization
+* Live Data factoring(Comments)
 
-* How to run the test suite
+* API for reading news
 
-* Services (job queues, cache servers, search engines, etc.)
+* SignIn and SignUp pages
 
-* Deployment instructions
-
-* ...
